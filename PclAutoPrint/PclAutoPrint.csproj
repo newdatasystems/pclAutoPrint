@@ -23,14 +23,14 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/newdatasystems/pclAutoPrint/main/pclAutoPrint/publish/</InstallUrl>
+    <InstallUrl>https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/newdatasystems/pclAutoPrint/main/pclAutoPrint/publish/</UpdateUrl>
     <SupportUrl>https://catstoday.com</SupportUrl>
     <PublisherName>New Data Systems, Inc.</PublisherName>
     <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
