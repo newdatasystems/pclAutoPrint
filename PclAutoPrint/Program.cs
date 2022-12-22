@@ -19,7 +19,9 @@ namespace PclAutoPrint {
             }
 
             // click-once doesn't pass arguments on the command line
-            if (AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0) {
+            if (AppDomain.CurrentDomain.SetupInformation.ActivationArguments != null && 
+                    AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null && 
+                    AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0) {
                 foreach (string commandLineFile in AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData) {
                     MessageBox.Show(string.Format("Command Line File: {0}", commandLineFile));
                 }
