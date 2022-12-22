@@ -26,6 +26,7 @@
     <InstallUrl>https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/</InstallUrl>
     <UpdateUrl>https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/</UpdateUrl>
     <SupportUrl>https://catstoday.com</SupportUrl>
+    <ProductName>PCL Send to Printer Utility</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
     <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
@@ -33,7 +34,6 @@
     <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -75,6 +75,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pclprint.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -141,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ndscats.ico" />
+    <Content Include="pclprint.ico" />
   </ItemGroup>
   <ItemGroup>
     <FileAssociation Include=".cats-pcl">
