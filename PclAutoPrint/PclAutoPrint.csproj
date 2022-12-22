@@ -151,7 +151,7 @@
       <Visible>False</Visible>
       <Description>PCL output from CATS</Description>
       <Progid>CATSPCL</Progid>
-      <DefaultIcon>ndscats.ico</DefaultIcon>
+      <DefaultIcon>pclprint.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
