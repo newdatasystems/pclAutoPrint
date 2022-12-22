@@ -23,7 +23,7 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://github.com/newdatasystems/pclAutoPrint/raw/gh-pages/Installer/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/newdatasystems/pclAutoPrint/main/pclAutoPrint/publish/</InstallUrl>
     <UpdateUrl>https://github.com/newdatasystems/pclAutoPrint/raw/gh-pages/Installer/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
