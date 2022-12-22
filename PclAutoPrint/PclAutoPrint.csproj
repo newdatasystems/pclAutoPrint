@@ -23,8 +23,8 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/</InstallUrl>
-    <UpdateUrl>https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/</UpdateUrl>
+    <InstallUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</InstallUrl>
+    <UpdateUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</UpdateUrl>
     <SupportUrl>https://catstoday.com</SupportUrl>
     <ProductName>PCL Send to Printer Utility</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>

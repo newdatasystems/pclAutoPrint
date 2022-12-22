@@ -8,7 +8,7 @@
         <expiration maximumAge="7" unit="days" />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://newdatasystems.github.io/pclAutoPrint/PclAutoPrint/publish/PclAutoPrint.application" />
+    <deploymentProvider codebase="https://pclprint.catstoday.com/PclAutoPrint/publish/PclAutoPrint.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
