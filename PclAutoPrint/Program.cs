@@ -14,7 +14,7 @@ namespace PclAutoPrint {
 
             // if arguments are passed on the command line then we process the files and exit
             if (args.Length > 0) {
-                foreach (string arg in args) FilePrinter.PrintOneFile(arg);
+                foreach (string arg in args) FilePrinter.PrintOneFile(arg, FilePrinter.StringToOperation(Properties.Settings.Default.DeleteFiles));
                 return;
             }
 

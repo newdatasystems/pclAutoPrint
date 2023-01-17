@@ -22,5 +22,10 @@ namespace PclAutoPrint {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files) FilePrinter.PrintOneFile(file, !checkBox1.Checked);
         }
+
+        private void pictureSettings_Click(object sender, EventArgs e) {
+            var settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
     }
 }
