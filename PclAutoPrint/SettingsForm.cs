@@ -57,5 +57,19 @@ namespace PclAutoPrint {
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void buttonChangePrinter_Click(object sender, EventArgs e) {
+            using (PrintDialog pdialog = new PrintDialog()
+            {
+                AllowCurrentPage = false,
+                AllowPrintToFile = false,
+                AllowSomePages = false,                
+            }) {
+                var printResult = pdialog.ShowDialog();
+                if (printResult == DialogResult.OK) {
+                    labelSelectedPrinter.Text = pdialog.PrinterSettings.PrinterName;
+                }
+            }
+        }
     }
 }

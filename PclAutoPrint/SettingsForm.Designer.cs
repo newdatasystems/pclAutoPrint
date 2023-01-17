@@ -64,6 +64,7 @@
             this.buttonChangePrinter.TabIndex = 4;
             this.buttonChangePrinter.Text = "Select Printer";
             this.buttonChangePrinter.UseVisualStyleBackColor = true;
+            this.buttonChangePrinter.Click += new System.EventHandler(this.buttonChangePrinter_Click);
             // 
             // panel1
             // 
