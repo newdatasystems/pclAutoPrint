@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace PclAutoPrint {
     public partial class DragAndDropForm : Form {
+
+        FolderWatcher watcher = new FolderWatcher();
+
         public DragAndDropForm() {
             InitializeComponent();
+            SetupFolderWatcher();
+        }
+
+        private void SetupFolderWatcher () {
+            watcher.StopWatching();
+            if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.FolderName))
+                watcher.WatchFolder(Properties.Settings.Default.FolderName);
         }
 
         private void labelDropTarget_DragEnter(object sender, DragEventArgs e) {
@@ -25,7 +35,8 @@ namespace PclAutoPrint {
 
         private void pictureSettings_Click(object sender, EventArgs e) {
             var settingsForm = new SettingsForm();
-            settingsForm.ShowDialog();
+            if (settingsForm.ShowDialog() == DialogResult.OK)
+                SetupFolderWatcher();
         }
     }
 }

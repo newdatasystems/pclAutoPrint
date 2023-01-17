@@ -70,8 +70,9 @@
             // pictureSettings
             // 
             this.pictureSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureSettings.Image = ((System.Drawing.Image)(resources.GetObject("pictureSettings.Image")));
-            this.pictureSettings.Location = new System.Drawing.Point(557, 1);
+            this.pictureSettings.Location = new System.Drawing.Point(554, 1);
             this.pictureSettings.Name = "pictureSettings";
             this.pictureSettings.Size = new System.Drawing.Size(32, 32);
             this.pictureSettings.TabIndex = 2;

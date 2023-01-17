@@ -61,14 +61,37 @@ namespace PclAutoPrint {
         }
 
         public static void PrintOneFile(string fileName, bool alwaysKeepFile = false) {
-            FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = alwaysKeepFile ? AfterPrintFileOperation.Keep : AfterPrintFileOperation.Prompt };
+            PrintOneFile(fileName, alwaysKeepFile ? AfterPrintFileOperation.Keep : AfterPrintFileOperation.Prompt);
+        }
+
+        public static void PrintOneFile(string fileName, AfterPrintFileOperation operation) {
+            FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation };
             printer.Print();
+
         }
 
         internal enum AfterPrintFileOperation {
             Keep,
             Delete,
             Prompt
+        }
+
+        internal static string OperationToString (AfterPrintFileOperation op) {
+            switch (op) {
+                case AfterPrintFileOperation.Keep:
+                    return "Keep";
+                case AfterPrintFileOperation.Delete:
+                    return "Delete";
+                default:
+                    return "Prompt";
+            }
+        }
+        internal static AfterPrintFileOperation StringToOperation (string setting) {
+            if (String.Equals(setting, "Delete"))
+                return AfterPrintFileOperation.Delete;
+            if (String.Equals(setting, "Keep"))
+                return AfterPrintFileOperation.Keep;
+            return AfterPrintFileOperation.Prompt;
         }
     }
 
