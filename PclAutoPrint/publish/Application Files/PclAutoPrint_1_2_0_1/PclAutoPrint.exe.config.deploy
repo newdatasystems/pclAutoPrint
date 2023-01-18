@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="PclAutoPrint.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
+    </startup>
+    <userSettings>
+        <PclAutoPrint.Properties.Settings>
+            <setting name="PrinterSelection" serializeAs="String">
+                <value>Prompt</value>
+            </setting>
+            <setting name="PrinterName" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="DeleteFiles" serializeAs="String">
+                <value>Delete</value>
+            </setting>
+            <setting name="MonitorFolder" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="FolderName" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="DelaySeconds" serializeAs="String">
+                <value>0</value>
+            </setting>
+        </PclAutoPrint.Properties.Settings>
+    </userSettings>
+</configuration>
