@@ -37,7 +37,7 @@ namespace PclAutoPrint {
 
         private void labelDropTarget_DragDrop(object sender, DragEventArgs e) {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            foreach (string file in files) FilePrinter.PrintOneFile(file, !checkBox1.Checked);
+            foreach (string file in files) FilePrinter.PrintOneFile(file, 1, !checkBox1.Checked);
         }
 
         private void pictureSettings_Click(object sender, EventArgs e) {

@@ -15,8 +15,10 @@ namespace PclAutoPrint {
         string caption = "PCL Print Notification";
         public string PrinterName { get; set; }
         public string FileName { get; set; }
+        public int Copies { get; set; }
 
         internal FilePrinter.AfterPrintFileOperation Operation { get; set; }
+        public int DelaySeconds { get; set; } = Properties.Settings.Default.DelaySeconds;
 
         DateTime expiration = DateTime.MinValue;
         double remainingMilliseconds = 0;
@@ -54,7 +56,8 @@ namespace PclAutoPrint {
             {
                 PrinterName = PrinterName,
                 FileName = FileName,
-                FileStatus = Operation
+                FileStatus = Operation,
+                Copies = Math.Max((int)spinCopies.Value,1) 
             };
             fp.Print();
             Close();
@@ -106,7 +109,7 @@ namespace PclAutoPrint {
         }
 
         private void PrintNotification_Shown(object sender, EventArgs e) {
-            remainingMilliseconds = Properties.Settings.Default.DelaySeconds * 1000;
+            remainingMilliseconds = DelaySeconds * 1000;
             StartCountdown();
         }
 

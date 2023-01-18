@@ -26,6 +26,7 @@
             this.labelSelectedPrinter = new System.Windows.Forms.Label();
             this.buttonChangePrinter = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkClearPrinter = new System.Windows.Forms.LinkLabel();
             this.radioPrinterPrompt = new System.Windows.Forms.RadioButton();
             this.radioPrinterDefault = new System.Windows.Forms.RadioButton();
             this.radioPrinterSelected = new System.Windows.Forms.RadioButton();
@@ -39,10 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textMonitorFolder = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonFormCancel = new System.Windows.Forms.Button();
             this.buttonFormSave = new System.Windows.Forms.Button();
+            this.buttonFormCancel = new System.Windows.Forms.Button();
             this.linkReset = new System.Windows.Forms.LinkLabel();
-            this.linkClearPrinter = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(414, 105);
             this.panel1.TabIndex = 3;
+            // 
+            // linkClearPrinter
+            // 
+            this.linkClearPrinter.AutoSize = true;
+            this.linkClearPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkClearPrinter.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkClearPrinter.Location = new System.Drawing.Point(324, 64);
+            this.linkClearPrinter.Name = "linkClearPrinter";
+            this.linkClearPrinter.Size = new System.Drawing.Size(31, 13);
+            this.linkClearPrinter.TabIndex = 15;
+            this.linkClearPrinter.TabStop = true;
+            this.linkClearPrinter.Text = "Clear";
+            this.linkClearPrinter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClearPrinter_LinkClicked);
             // 
             // radioPrinterPrompt
             // 
@@ -216,6 +229,16 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 35);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
+            // buttonFormSave
+            // 
+            this.buttonFormSave.Location = new System.Drawing.Point(3, 3);
+            this.buttonFormSave.Name = "buttonFormSave";
+            this.buttonFormSave.Size = new System.Drawing.Size(75, 28);
+            this.buttonFormSave.TabIndex = 15;
+            this.buttonFormSave.Text = "Save";
+            this.buttonFormSave.UseVisualStyleBackColor = true;
+            this.buttonFormSave.Click += new System.EventHandler(this.buttonFormSave_Click);
+            // 
             // buttonFormCancel
             // 
             this.buttonFormCancel.Location = new System.Drawing.Point(84, 3);
@@ -225,15 +248,6 @@
             this.buttonFormCancel.Text = "Cancel";
             this.buttonFormCancel.UseVisualStyleBackColor = true;
             this.buttonFormCancel.Click += new System.EventHandler(this.buttonFormCancel_Click);
-            // 
-            // buttonFormSave
-            // 
-            this.buttonFormSave.Location = new System.Drawing.Point(3, 3);
-            this.buttonFormSave.Name = "buttonFormSave";
-            this.buttonFormSave.Size = new System.Drawing.Size(75, 28);
-            this.buttonFormSave.TabIndex = 15;
-            this.buttonFormSave.Text = "Save";
-            this.buttonFormSave.UseVisualStyleBackColor = true;
             // 
             // linkReset
             // 
@@ -247,19 +261,6 @@
             this.linkReset.TabStop = true;
             this.linkReset.Text = "Reset to defaults";
             this.linkReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReset_LinkClicked);
-            // 
-            // linkClearPrinter
-            // 
-            this.linkClearPrinter.AutoSize = true;
-            this.linkClearPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkClearPrinter.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.linkClearPrinter.Location = new System.Drawing.Point(324, 64);
-            this.linkClearPrinter.Name = "linkClearPrinter";
-            this.linkClearPrinter.Size = new System.Drawing.Size(31, 13);
-            this.linkClearPrinter.TabIndex = 15;
-            this.linkClearPrinter.TabStop = true;
-            this.linkClearPrinter.Text = "Clear";
-            this.linkClearPrinter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClearPrinter_LinkClicked);
             // 
             // SettingsForm
             // 

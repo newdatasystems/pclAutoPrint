@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace PclAutoPrint {
     internal static class Program {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -14,7 +15,8 @@ namespace PclAutoPrint {
 
             // if arguments are passed on the command line then we process the files and exit
             if (args.Length > 0) {
-                foreach (string arg in args) FilePrinter.PrintOneFile(arg, FilePrinter.StringToOperation(Properties.Settings.Default.DeleteFiles));
+                FilePrinter.PrintWithArgs(args);
+                //foreach (string arg in args) FilePrinter.PrintOneFile(arg, 1, FilePrinter.StringToOperation(Properties.Settings.Default.DeleteFiles));
                 return;
             }
 
@@ -22,7 +24,8 @@ namespace PclAutoPrint {
             if (AppDomain.CurrentDomain.SetupInformation.ActivationArguments != null && 
                     AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null && 
                     AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0) {
-                foreach (string commandLineFile in AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData) FilePrinter.PrintOneFile(commandLineFile);
+                FilePrinter.PrintWithArgs(AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData);
+                //foreach (string commandLineFile in AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData) FilePrinter.PrintOneFile(commandLineFile);
                 return;
             }
 

@@ -34,7 +34,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerCountdown = new System.Windows.Forms.Timer(this.components);
             this.picturePausePlay = new System.Windows.Forms.PictureBox();
+            this.spinCopies = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picturePausePlay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinCopies)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSendingPclFile
@@ -54,7 +57,7 @@
             this.labelFileName.Location = new System.Drawing.Point(12, 29);
             this.labelFileName.Name = "labelFileName";
             this.labelFileName.Size = new System.Drawing.Size(103, 17);
-            this.labelFileName.TabIndex = 1;
+            this.labelFileName.TabIndex = 2;
             this.labelFileName.Text = "[No File Selected]";
             // 
             // buttonChangePrinter
@@ -63,7 +66,7 @@
             this.buttonChangePrinter.Location = new System.Drawing.Point(12, 58);
             this.buttonChangePrinter.Name = "buttonChangePrinter";
             this.buttonChangePrinter.Size = new System.Drawing.Size(160, 31);
-            this.buttonChangePrinter.TabIndex = 2;
+            this.buttonChangePrinter.TabIndex = 3;
             this.buttonChangePrinter.Text = "Change Printer";
             this.buttonChangePrinter.UseVisualStyleBackColor = true;
             this.buttonChangePrinter.Click += new System.EventHandler(this.buttonChangePrinter_Click);
@@ -74,7 +77,7 @@
             this.buttonFormSave.Location = new System.Drawing.Point(356, 58);
             this.buttonFormSave.Name = "buttonFormSave";
             this.buttonFormSave.Size = new System.Drawing.Size(100, 31);
-            this.buttonFormSave.TabIndex = 3;
+            this.buttonFormSave.TabIndex = 6;
             this.buttonFormSave.Text = "Print";
             this.buttonFormSave.UseVisualStyleBackColor = true;
             this.buttonFormSave.Click += new System.EventHandler(this.buttonFormSave_Click);
@@ -86,7 +89,7 @@
             this.buttonFormCancel.Location = new System.Drawing.Point(462, 58);
             this.buttonFormCancel.Name = "buttonFormCancel";
             this.buttonFormCancel.Size = new System.Drawing.Size(100, 31);
-            this.buttonFormCancel.TabIndex = 4;
+            this.buttonFormCancel.TabIndex = 7;
             this.buttonFormCancel.Text = "Cancel";
             this.buttonFormCancel.UseVisualStyleBackColor = true;
             this.buttonFormCancel.Click += new System.EventHandler(this.buttonFormCancel_Click);
@@ -98,7 +101,7 @@
             this.labelPrinterName.Location = new System.Drawing.Point(203, 10);
             this.labelPrinterName.Name = "labelPrinterName";
             this.labelPrinterName.Size = new System.Drawing.Size(122, 17);
-            this.labelPrinterName.TabIndex = 5;
+            this.labelPrinterName.TabIndex = 1;
             this.labelPrinterName.Text = "[No Printer Selected]";
             // 
             // timer1
@@ -122,6 +125,24 @@
             this.picturePausePlay.TabStop = false;
             this.picturePausePlay.Click += new System.EventHandler(this.picturePausePlay_Click);
             // 
+            // spinCopies
+            // 
+            this.spinCopies.Location = new System.Drawing.Point(296, 61);
+            this.spinCopies.Name = "spinCopies";
+            this.spinCopies.Size = new System.Drawing.Size(39, 27);
+            this.spinCopies.TabIndex = 5;
+            this.spinCopies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(237, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Copies:";
+            // 
             // PrintNotification
             // 
             this.AcceptButton = this.buttonFormSave;
@@ -130,6 +151,8 @@
             this.CancelButton = this.buttonFormCancel;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(574, 96);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.spinCopies);
             this.Controls.Add(this.picturePausePlay);
             this.Controls.Add(this.labelPrinterName);
             this.Controls.Add(this.buttonFormCancel);
@@ -150,6 +173,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrintNotification_FormClosing);
             this.Shown += new System.EventHandler(this.PrintNotification_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.picturePausePlay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinCopies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +190,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerCountdown;
         private System.Windows.Forms.PictureBox picturePausePlay;
+        private System.Windows.Forms.NumericUpDown spinCopies;
+        private System.Windows.Forms.Label label1;
     }
 }

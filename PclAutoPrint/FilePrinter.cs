@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,8 +13,10 @@ namespace PclAutoPrint {
 
         public string FileName { get; set; }
         public string PrinterName { get; set; }
-
+        public int Copies { get; set; }
         public AfterPrintFileOperation FileStatus { get; set; }
+        public int DelaySeconds { get; set; }
+
 
         public void Print() {
             if (String.IsNullOrEmpty(FileName))
@@ -26,7 +29,7 @@ namespace PclAutoPrint {
                 if (!PromptForPrinter())
                     return;
 
-            RawFilePrint.SendFileToPrinter(PrinterName, FileName);
+            RawFilePrint.SendFileToPrinter(PrinterName, FileName, Copies);
 
             bool deleteFile = (FileStatus == AfterPrintFileOperation.Delete);
 
@@ -61,25 +64,34 @@ namespace PclAutoPrint {
             return false;
         }
 
-        public static void PrintOneFile(string fileName, bool alwaysKeepFile = false) {
-            PrintOneFile(fileName, alwaysKeepFile ? AfterPrintFileOperation.Keep : AfterPrintFileOperation.Prompt);
+        public static void PrintOneFile(string fileName, int copies = 1, bool alwaysKeepFile = false) {
+            PrintOneFile(fileName, copies, alwaysKeepFile ? AfterPrintFileOperation.Keep : AfterPrintFileOperation.Prompt);
         }
 
-        public static void PrintOneFile(string fileName, AfterPrintFileOperation operation) {
+        public static void PrintOneFile(string fileName, int copies, AfterPrintFileOperation operation) {
             if (Properties.Settings.Default.DelaySeconds > 0) {
                 string printerName = String.Empty;
-                if (String.Equals(Properties.Settings.Default.PrinterSelection,"Default")) {
-                    var printSettings = new PrinterSettings();
-                    printerName = printSettings.PrinterName;
-                } else if (String.Equals(Properties.Settings.Default.PrinterSelection,"Select")) {
+                if (String.Equals(Properties.Settings.Default.PrinterSelection, "Default")) {
+                    printerName = GetDefaultPrinterName();
+                } else if (String.Equals(Properties.Settings.Default.PrinterSelection, "Select")) {
                     printerName = Properties.Settings.Default.PrinterName;
                 }
-                var notifier = new PrintNotification() { FileName = fileName, PrinterName = printerName, Operation = operation };
-                notifier.ShowDialog();
-            } else {
-                FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation };
+                PrintWithNotification(fileName, copies, operation, printerName, Properties.Settings.Default.DelaySeconds);
+            }
+            else {
+                FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation, Copies = copies };
                 printer.Print();
             }
+        }
+
+        private static void PrintWithNotification(string fileName, int copies, AfterPrintFileOperation operation, string printerName, int delayForSeconds) {
+            var notifier = new PrintNotification() { FileName = fileName, PrinterName = printerName, Operation = operation, Copies = copies, DelaySeconds = delayForSeconds };
+            notifier.ShowDialog();
+        }
+
+        internal static string GetDefaultPrinterName () {
+            var printSettings = new PrinterSettings();
+            return printSettings.PrinterName;
         }
 
         internal enum AfterPrintFileOperation {
@@ -104,6 +116,40 @@ namespace PclAutoPrint {
             if (String.Equals(setting, "Keep"))
                 return AfterPrintFileOperation.Keep;
             return AfterPrintFileOperation.Prompt;
+        }
+
+        internal static void PrintWithArgs(string[] args) {
+            var options = StartupOptions.ParseArgs(args);
+
+            FilePrinter fp = new FilePrinter();
+            if (options.KeepFile) {
+                fp.FileStatus = AfterPrintFileOperation.Keep;
+            } else if (options.PromptFile) {
+                fp.FileStatus = AfterPrintFileOperation.Prompt;
+            } else {
+                fp.FileStatus = AfterPrintFileOperation.Delete;
+            }
+            if (!String.IsNullOrEmpty(options.PrinterName)) {
+                fp.PrinterName = options.PrinterName;
+            } else {
+                if (options.DefaultPrinter) {
+                    fp.PrinterName = GetDefaultPrinterName();
+                } else if (options.NoPrinter) {
+                    fp.PrinterName = String.Empty;
+                } else {
+                    fp.PrinterName = Properties.Settings.Default.PrinterName;
+                }
+            }
+            fp.Copies = options.CopyCount;
+            int delaySeconds = options.DelaySeconds >= 0 ? options.DelaySeconds : Properties.Settings.Default.DelaySeconds;
+            foreach (var item in options.FileList) {
+                if (delaySeconds > 0) {
+                    PrintWithNotification(item, fp.Copies, fp.FileStatus, fp.PrinterName, delaySeconds);
+                } else {
+                    fp.FileName = item;
+                    fp.Print();
+                }
+            }
         }
     }
 

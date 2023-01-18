@@ -116,6 +116,7 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartupOptions.cs" />
     <EmbeddedResource Include="DragAndDropForm.resx">
       <DependentUpon>DragAndDropForm.cs</DependentUpon>
     </EmbeddedResource>
