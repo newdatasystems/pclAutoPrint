@@ -164,6 +164,7 @@
             this.checkFolderMonitor.TabIndex = 8;
             this.checkFolderMonitor.Text = "Monitor this folder for new files and print them automatically:";
             this.checkFolderMonitor.UseVisualStyleBackColor = true;
+            this.checkFolderMonitor.CheckedChanged += new System.EventHandler(this.checkFolderMonitor_CheckedChanged);
             // 
             // checkAutoDelete
             // 
@@ -210,7 +211,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.buttonFormSave);
             this.flowLayoutPanel1.Controls.Add(this.buttonFormCancel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 350);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(134, 350);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 35);
             this.flowLayoutPanel1.TabIndex = 13;
@@ -223,6 +224,7 @@
             this.buttonFormCancel.TabIndex = 16;
             this.buttonFormCancel.Text = "Cancel";
             this.buttonFormCancel.UseVisualStyleBackColor = true;
+            this.buttonFormCancel.Click += new System.EventHandler(this.buttonFormCancel_Click);
             // 
             // buttonFormSave
             // 

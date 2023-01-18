@@ -80,5 +80,11 @@ namespace PclAutoPrint {
         private void linkClearPrinter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             labelSelectedPrinter.Text = String.Empty;
         }
+
+        private void checkFolderMonitor_CheckedChanged(object sender, EventArgs e) {
+            if (checkFolderMonitor.Checked && String.IsNullOrEmpty(textMonitorFolder.Text)) {
+                textMonitorFolder.Text = String.Format(@"C:\Users\{0}\Downloads\", Environment.UserName);
+            }
+        }
     }
 }
