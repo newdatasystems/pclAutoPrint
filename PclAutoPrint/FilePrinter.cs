@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,9 +66,20 @@ namespace PclAutoPrint {
         }
 
         public static void PrintOneFile(string fileName, AfterPrintFileOperation operation) {
-            FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation };
-            printer.Print();
-
+            if (Properties.Settings.Default.DelaySeconds > 0) {
+                string printerName = String.Empty;
+                if (String.Equals(Properties.Settings.Default.PrinterSelection,"Default")) {
+                    var printSettings = new PrinterSettings();
+                    printerName = printSettings.PrinterName;
+                } else if (String.Equals(Properties.Settings.Default.PrinterSelection,"Select")) {
+                    printerName = Properties.Settings.Default.PrinterName;
+                }
+                var notifier = new PrintNotification() { FileName = fileName, PrinterName = printerName, Operation = operation };
+                notifier.ShowDialog();
+            } else {
+                FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation };
+                printer.Print();
+            }
         }
 
         internal enum AfterPrintFileOperation {

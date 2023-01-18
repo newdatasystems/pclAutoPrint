@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,31 +13,35 @@ namespace PclAutoPrint {
 
         public string Folder { get; set; }
 
-        private FileSystemWatcher watcher;
+        private FileSystemWatcher _watcher;
+        private ConcurrentDictionary<string, string> _watchedFiles = new ConcurrentDictionary<string, string>();
 
         public void WatchFolder (string path) {
             if (String.IsNullOrWhiteSpace(path))
                 throw new InvalidOperationException("Path to monitor cannot be empty.");
 
-            watcher = new FileSystemWatcher();
-            watcher.Path = path;
-            watcher.NotifyFilter = NotifyFilters.LastWrite;
-            watcher.Filter = "*.cats-pcl";
-            watcher.Changed += Watcher_Changed;
-            watcher.EnableRaisingEvents = true;
+            _watcher = new FileSystemWatcher();
+            _watcher.Path = path;
+            _watcher.NotifyFilter = NotifyFilters.LastWrite;
+            _watcher.Filter = "*.cats-pcl";
+            _watcher.Changed += Watcher_Changed;
+            _watcher.EnableRaisingEvents = true;
         }
 
         public void StopWatching () {
-            if (watcher != null) {
-                watcher.Changed -= Watcher_Changed;
-                watcher.Dispose();
+            if (_watcher != null) {
+                _watcher.Changed -= Watcher_Changed;
+                _watcher.Dispose();
             }
-            watcher = null;
+            _watcher = null;
         }
 
         private void Watcher_Changed(object sender, FileSystemEventArgs e) {
+            if (!_watchedFiles.TryAdd(e.FullPath, e.Name))
+                return;
             ThreadPool.QueueUserWorkItem(sendToPrinter =>
             {
+                
                 for (int i = 0; i < 1200; i++) { // thread will wait up to 5 minutes for the file to unlock
                     // If the file can be opened for exclusive access it means that the file
                     // is no longer locked by another process.
@@ -51,7 +56,8 @@ namespace PclAutoPrint {
                 }
                 var info = new System.Diagnostics.ProcessStartInfo(Application.ExecutablePath)
                 {
-                    Arguments = e.FullPath
+                    Arguments = String.Format("\"{0}\"",e.FullPath),
+                    UseShellExecute = true
                 };
                 System.Diagnostics.Process.Start(info);
             });

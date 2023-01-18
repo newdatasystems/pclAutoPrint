@@ -28,6 +28,7 @@
             this.labelDropTarget = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureSettings = new System.Windows.Forms.PictureBox();
+            this.labelMonitor = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(327, 1);
+            this.checkBox1.Location = new System.Drawing.Point(357, 4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(188, 17);
             this.checkBox1.TabIndex = 1;
@@ -72,18 +73,28 @@
             this.pictureSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureSettings.Image = ((System.Drawing.Image)(resources.GetObject("pictureSettings.Image")));
-            this.pictureSettings.Location = new System.Drawing.Point(554, 1);
+            this.pictureSettings.Location = new System.Drawing.Point(551, 6);
             this.pictureSettings.Name = "pictureSettings";
             this.pictureSettings.Size = new System.Drawing.Size(32, 32);
             this.pictureSettings.TabIndex = 2;
             this.pictureSettings.TabStop = false;
             this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
             // 
+            // labelMonitor
+            // 
+            this.labelMonitor.AutoSize = true;
+            this.labelMonitor.Location = new System.Drawing.Point(3, 5);
+            this.labelMonitor.Name = "labelMonitor";
+            this.labelMonitor.Size = new System.Drawing.Size(90, 13);
+            this.labelMonitor.TabIndex = 3;
+            this.labelMonitor.Text = "Monitor turned off";
+            // 
             // DragAndDropForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 403);
+            this.Controls.Add(this.labelMonitor);
             this.Controls.Add(this.pictureSettings);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
@@ -103,5 +114,6 @@
         private System.Windows.Forms.Label labelDropTarget;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox pictureSettings;
+        private System.Windows.Forms.Label labelMonitor;
     }
 }
