@@ -26,14 +26,23 @@ namespace PclAutoPrint {
 
         public PrintNotification() {
             InitializeComponent();
+            DisplayVersionInformation();
+        }
+        void DisplayVersionInformation() {
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            labelVersion.Text = String.Format("v{0}", version);
         }
 
         private void StartCountdown() {
-            timerCountdown.Interval = 100;
-            timer1.Interval = (int)remainingMilliseconds;
-            expiration = DateTime.Now.AddMilliseconds(timer1.Interval);
-            timer1.Enabled = true;
-            timerCountdown.Enabled = true;
+            if (DelaySeconds > 0) {
+                timerCountdown.Interval = 100;
+                timer1.Interval = (int)remainingMilliseconds;
+                expiration = DateTime.Now.AddMilliseconds(timer1.Interval);
+                timer1.Enabled = true;
+                timerCountdown.Enabled = true;
+            } else {
+                countdownHalted = true;
+            }
             UpdateDisplay();
         }
 
@@ -94,6 +103,11 @@ namespace PclAutoPrint {
 
         private void buttonChangePrinter_Click(object sender, EventArgs e) {
             HaltCountdown();
+            SelectPrinter();
+            UpdateDisplay();
+        }
+
+        void SelectPrinter() {
             using (PrintDialog pdialog = new PrintDialog()
             {
                 AllowCurrentPage = false,
@@ -105,12 +119,20 @@ namespace PclAutoPrint {
                     PrinterName = pdialog.PrinterSettings.PrinterName;
                 }
             }
-            UpdateDisplay();
         }
 
         private void PrintNotification_Shown(object sender, EventArgs e) {
             remainingMilliseconds = DelaySeconds * 1000;
             spinCopies.Value = Copies;
+
+            if (String.IsNullOrEmpty(PrinterName)) {
+                SelectPrinter();
+                if (!String.IsNullOrEmpty(PrinterName) && DelaySeconds==0) {
+                    SendFileToPrinter();
+                    return;
+                }
+            }
+
             StartCountdown();
         }
 
@@ -149,6 +171,12 @@ namespace PclAutoPrint {
 
         private void spinCopies_ValueChanged(object sender, EventArgs e) {
             Copies = (int)spinCopies.Value;
+        }
+
+        private void pictureSettings_Click(object sender, EventArgs e) {
+            StopCountdown(true);
+            var settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
     }
 }

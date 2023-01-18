@@ -29,6 +29,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.labelMonitor = new System.Windows.Forms.Label();
             this.pictureSettings = new System.Windows.Forms.PictureBox();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).BeginInit();
             this.SuspendLayout();
@@ -38,6 +39,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.labelVersion);
             this.panel1.Controls.Add(this.labelDropTarget);
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
@@ -90,6 +92,16 @@
             this.pictureSettings.TabStop = false;
             this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
             // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersion.Location = new System.Drawing.Point(499, 363);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(90, 13);
+            this.labelVersion.TabIndex = 4;
+            this.labelVersion.Text = "v1.1.1.1";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // DragAndDropForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label labelMonitor;
         private System.Windows.Forms.PictureBox pictureSettings;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

@@ -69,7 +69,7 @@ namespace PclAutoPrint {
         }
 
         public static void PrintOneFile(string fileName, int copies, AfterPrintFileOperation operation) {
-            if (Properties.Settings.Default.DelaySeconds > 0) {
+            //if (Properties.Settings.Default.DelaySeconds > 0) {
                 string printerName = String.Empty;
                 if (String.Equals(Properties.Settings.Default.PrinterSelection, "Default")) {
                     printerName = GetDefaultPrinterName();
@@ -77,11 +77,11 @@ namespace PclAutoPrint {
                     printerName = Properties.Settings.Default.PrinterName;
                 }
                 PrintWithNotification(fileName, copies, operation, printerName, Properties.Settings.Default.DelaySeconds);
-            }
-            else {
-                FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation, Copies = copies };
-                printer.Print();
-            }
+            //}
+            //else {
+            //    FilePrinter printer = new FilePrinter() { FileName = fileName, FileStatus = operation, Copies = copies };
+            //    printer.Print();
+            //}
         }
 
         private static void PrintWithNotification(string fileName, int copies, AfterPrintFileOperation operation, string printerName, int delayForSeconds) {
@@ -143,12 +143,12 @@ namespace PclAutoPrint {
             fp.Copies = options.CopyCount;
             int delaySeconds = options.DelaySeconds >= 0 ? options.DelaySeconds : Properties.Settings.Default.DelaySeconds;
             foreach (var item in options.FileList) {
-                if (delaySeconds > 0) {
+                //if (delaySeconds > 0) {
                     PrintWithNotification(item, fp.Copies, fp.FileStatus, fp.PrinterName, delaySeconds);
-                } else {
-                    fp.FileName = item;
-                    fp.Print();
-                }
+                //} else {
+                //    fp.FileName = item;
+                //    fp.Print();
+                //}
             }
         }
     }

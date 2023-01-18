@@ -36,8 +36,11 @@
             this.picturePausePlay = new System.Windows.Forms.PictureBox();
             this.spinCopies = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.pictureSettings = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picturePausePlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCopies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSendingPclFile
@@ -97,10 +100,10 @@
             // labelPrinterName
             // 
             this.labelPrinterName.AutoSize = true;
-            this.labelPrinterName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrinterName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrinterName.Location = new System.Drawing.Point(203, 10);
             this.labelPrinterName.Name = "labelPrinterName";
-            this.labelPrinterName.Size = new System.Drawing.Size(122, 17);
+            this.labelPrinterName.Size = new System.Drawing.Size(137, 17);
             this.labelPrinterName.TabIndex = 1;
             this.labelPrinterName.Text = "[No Printer Selected]";
             // 
@@ -159,6 +162,30 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Copies:";
             // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.Location = new System.Drawing.Point(472, 32);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(90, 13);
+            this.labelVersion.TabIndex = 8;
+            this.labelVersion.Text = "v1.1.1.1";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // pictureSettings
+            // 
+            this.pictureSettings.AccessibleDescription = "Gear icon for settings changes";
+            this.pictureSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureSettings.Image = global::PclAutoPrint.Properties.Resources.settings_png;
+            this.pictureSettings.Location = new System.Drawing.Point(178, 62);
+            this.pictureSettings.Name = "pictureSettings";
+            this.pictureSettings.Size = new System.Drawing.Size(24, 24);
+            this.pictureSettings.TabIndex = 9;
+            this.pictureSettings.TabStop = false;
+            this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
+            // 
             // PrintNotification
             // 
             this.AcceptButton = this.buttonFormSave;
@@ -167,6 +194,8 @@
             this.CancelButton = this.buttonFormCancel;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(574, 96);
+            this.Controls.Add(this.pictureSettings);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.spinCopies);
             this.Controls.Add(this.picturePausePlay);
@@ -190,6 +219,7 @@
             this.Shown += new System.EventHandler(this.PrintNotification_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.picturePausePlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinCopies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +238,7 @@
         private System.Windows.Forms.PictureBox picturePausePlay;
         private System.Windows.Forms.NumericUpDown spinCopies;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.PictureBox pictureSettings;
     }
 }
