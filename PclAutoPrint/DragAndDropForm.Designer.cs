@@ -27,8 +27,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelDropTarget = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.pictureSettings = new System.Windows.Forms.PictureBox();
             this.labelMonitor = new System.Windows.Forms.Label();
+            this.pictureSettings = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).BeginInit();
             this.SuspendLayout();
@@ -68,18 +68,6 @@
             this.checkBox1.Text = "Prompt to delete files after printing.";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // pictureSettings
-            // 
-            this.pictureSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureSettings.Image = ((System.Drawing.Image)(resources.GetObject("pictureSettings.Image")));
-            this.pictureSettings.Location = new System.Drawing.Point(551, 6);
-            this.pictureSettings.Name = "pictureSettings";
-            this.pictureSettings.Size = new System.Drawing.Size(32, 32);
-            this.pictureSettings.TabIndex = 2;
-            this.pictureSettings.TabStop = false;
-            this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
-            // 
             // labelMonitor
             // 
             this.labelMonitor.AutoSize = true;
@@ -89,18 +77,32 @@
             this.labelMonitor.TabIndex = 3;
             this.labelMonitor.Text = "Monitor turned off";
             // 
+            // pictureSettings
+            // 
+            this.pictureSettings.AccessibleDescription = "Gear icon for settings changes";
+            this.pictureSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureSettings.Image = global::PclAutoPrint.Properties.Resources.settings_png;
+            this.pictureSettings.Location = new System.Drawing.Point(562, 5);
+            this.pictureSettings.Name = "pictureSettings";
+            this.pictureSettings.Size = new System.Drawing.Size(24, 24);
+            this.pictureSettings.TabIndex = 3;
+            this.pictureSettings.TabStop = false;
+            this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
+            // 
             // DragAndDropForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 403);
-            this.Controls.Add(this.labelMonitor);
             this.Controls.Add(this.pictureSettings);
+            this.Controls.Add(this.labelMonitor);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DragAndDropForm";
             this.Text = "PCL Auto Printer";
+            this.Click += new System.EventHandler(this.pictureSettings_Click);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).EndInit();
             this.ResumeLayout(false);
@@ -113,7 +115,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelDropTarget;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.PictureBox pictureSettings;
         private System.Windows.Forms.Label labelMonitor;
+        private System.Windows.Forms.PictureBox pictureSettings;
     }
 }

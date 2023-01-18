@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ndscats.ico" />
+    <None Include="settings.png" />
     <None Include="pause.png" />
     <Content Include="pclprint.ico" />
     <None Include="play.png" />

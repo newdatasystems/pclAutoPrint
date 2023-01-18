@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace PclAutoPrint {
     internal class FolderWatcher {
 
-        public string Folder { get; set; }
+        public bool IsWatching {  get { return _watcher != null; } }
+        public string Folder { get { return _watcher == null ? String.Empty : _watcher.Path; } }
 
         private FileSystemWatcher _watcher;
         private ConcurrentDictionary<string, string> _watchedFiles = new ConcurrentDictionary<string, string>();

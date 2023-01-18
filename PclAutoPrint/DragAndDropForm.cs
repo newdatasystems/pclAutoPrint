@@ -22,6 +22,13 @@ namespace PclAutoPrint {
             watcher.StopWatching();
             if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.FolderName))
                 watcher.WatchFolder(Properties.Settings.Default.FolderName);
+
+            if (watcher.IsWatching) {
+                labelMonitor.Text = String.Format("Monitoring {0} for changes.", watcher.Folder);
+            }
+            else {
+                labelMonitor.Text = "Monitor turned off.";
+            }
         }
 
         private void labelDropTarget_DragEnter(object sender, DragEventArgs e) {
