@@ -38,11 +38,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textMonitorFolder = new System.Windows.Forms.TextBox();
-            this.buttonFormSave = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFormCancel = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonFormSave = new System.Windows.Forms.Button();
+            this.linkReset = new System.Windows.Forms.LinkLabel();
+            this.linkClearPrinter = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelSelectedPrinter
@@ -68,6 +70,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkClearPrinter);
             this.panel1.Controls.Add(this.buttonChangePrinter);
             this.panel1.Controls.Add(this.labelSelectedPrinter);
             this.panel1.Controls.Add(this.radioPrinterPrompt);
@@ -76,7 +79,7 @@
             this.panel1.Location = new System.Drawing.Point(16, 29);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 117);
+            this.panel1.Size = new System.Drawing.Size(414, 105);
             this.panel1.TabIndex = 3;
             // 
             // radioPrinterPrompt
@@ -128,7 +131,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 269);
+            this.label2.Location = new System.Drawing.Point(17, 252);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 5;
@@ -136,7 +139,7 @@
             // 
             // textUserDelay
             // 
-            this.textUserDelay.Location = new System.Drawing.Point(53, 266);
+            this.textUserDelay.Location = new System.Drawing.Point(53, 249);
             this.textUserDelay.Name = "textUserDelay";
             this.textUserDelay.Size = new System.Drawing.Size(26, 22);
             this.textUserDelay.TabIndex = 6;
@@ -146,7 +149,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 269);
+            this.label3.Location = new System.Drawing.Point(81, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 16);
             this.label3.TabIndex = 7;
@@ -155,7 +158,7 @@
             // checkFolderMonitor
             // 
             this.checkFolderMonitor.AutoSize = true;
-            this.checkFolderMonitor.Location = new System.Drawing.Point(20, 179);
+            this.checkFolderMonitor.Location = new System.Drawing.Point(20, 166);
             this.checkFolderMonitor.Name = "checkFolderMonitor";
             this.checkFolderMonitor.Size = new System.Drawing.Size(373, 20);
             this.checkFolderMonitor.TabIndex = 8;
@@ -176,7 +179,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 160);
+            this.label4.Location = new System.Drawing.Point(13, 147);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 16);
@@ -187,7 +190,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 244);
+            this.label5.Location = new System.Drawing.Point(13, 227);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 16);
@@ -196,48 +199,73 @@
             // 
             // textMonitorFolder
             // 
-            this.textMonitorFolder.Location = new System.Drawing.Point(33, 205);
+            this.textMonitorFolder.Location = new System.Drawing.Point(33, 192);
             this.textMonitorFolder.Name = "textMonitorFolder";
             this.textMonitorFolder.Size = new System.Drawing.Size(360, 22);
             this.textMonitorFolder.TabIndex = 12;
             // 
-            // buttonFormSave
+            // flowLayoutPanel1
             // 
-            this.buttonFormSave.Location = new System.Drawing.Point(3, 3);
-            this.buttonFormSave.Name = "buttonFormSave";
-            this.buttonFormSave.Size = new System.Drawing.Size(75, 28);
-            this.buttonFormSave.TabIndex = 13;
-            this.buttonFormSave.Text = "Save";
-            this.buttonFormSave.UseVisualStyleBackColor = true;
-            this.buttonFormSave.Click += new System.EventHandler(this.buttonFormSave_Click);
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.buttonFormSave);
+            this.flowLayoutPanel1.Controls.Add(this.buttonFormCancel);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 350);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 35);
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // buttonFormCancel
             // 
             this.buttonFormCancel.Location = new System.Drawing.Point(84, 3);
             this.buttonFormCancel.Name = "buttonFormCancel";
             this.buttonFormCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonFormCancel.TabIndex = 14;
+            this.buttonFormCancel.TabIndex = 16;
             this.buttonFormCancel.Text = "Cancel";
             this.buttonFormCancel.UseVisualStyleBackColor = true;
-            this.buttonFormCancel.Click += new System.EventHandler(this.buttonFormCancel_Click);
             // 
-            // panel2
+            // buttonFormSave
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.buttonFormCancel);
-            this.panel2.Controls.Add(this.buttonFormSave);
-            this.panel2.Location = new System.Drawing.Point(131, 350);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(163, 32);
-            this.panel2.TabIndex = 15;
+            this.buttonFormSave.Location = new System.Drawing.Point(3, 3);
+            this.buttonFormSave.Name = "buttonFormSave";
+            this.buttonFormSave.Size = new System.Drawing.Size(75, 28);
+            this.buttonFormSave.TabIndex = 15;
+            this.buttonFormSave.Text = "Save";
+            this.buttonFormSave.UseVisualStyleBackColor = true;
+            // 
+            // linkReset
+            // 
+            this.linkReset.AutoSize = true;
+            this.linkReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkReset.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkReset.Location = new System.Drawing.Point(344, 9);
+            this.linkReset.Name = "linkReset";
+            this.linkReset.Size = new System.Drawing.Size(87, 13);
+            this.linkReset.TabIndex = 14;
+            this.linkReset.TabStop = true;
+            this.linkReset.Text = "Reset to defaults";
+            this.linkReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReset_LinkClicked);
+            // 
+            // linkClearPrinter
+            // 
+            this.linkClearPrinter.AutoSize = true;
+            this.linkClearPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkClearPrinter.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkClearPrinter.Location = new System.Drawing.Point(324, 64);
+            this.linkClearPrinter.Name = "linkClearPrinter";
+            this.linkClearPrinter.Size = new System.Drawing.Size(31, 13);
+            this.linkClearPrinter.TabIndex = 15;
+            this.linkClearPrinter.TabStop = true;
+            this.linkClearPrinter.Text = "Clear";
+            this.linkClearPrinter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClearPrinter_LinkClicked);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 389);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.linkReset);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.textMonitorFolder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -256,7 +284,7 @@
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,8 +306,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textMonitorFolder;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button buttonFormSave;
         private System.Windows.Forms.Button buttonFormCancel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.LinkLabel linkReset;
+        private System.Windows.Forms.LinkLabel linkClearPrinter;
     }
 }

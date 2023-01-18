@@ -20,7 +20,7 @@ namespace PclAutoPrint {
             textUserDelay.Text = Properties.Settings.Default.DelaySeconds.ToString();
             textMonitorFolder.Text = Properties.Settings.Default.FolderName;
             checkFolderMonitor.Checked = Properties.Settings.Default.MonitorFolder;
-            checkAutoDelete.Checked = String.Equals(Properties.Settings.Default.DeleteFiles, "Yes");
+            checkAutoDelete.Checked = String.Equals(Properties.Settings.Default.DeleteFiles, "Delete");
             labelSelectedPrinter.Text = Properties.Settings.Default.PrinterName;
         }
 
@@ -38,7 +38,7 @@ namespace PclAutoPrint {
             Properties.Settings.Default.DelaySeconds = (Int32.TryParse(textUserDelay.Text,out var delaySeconds) ? delaySeconds : 0);
             Properties.Settings.Default.FolderName = textMonitorFolder.Text;
             Properties.Settings.Default.MonitorFolder = checkFolderMonitor.Checked;
-            Properties.Settings.Default.DeleteFiles = checkAutoDelete.Checked ? "Yes" : "No";
+            Properties.Settings.Default.DeleteFiles = checkAutoDelete.Checked ? "Delete" : "Keep";
             Properties.Settings.Default.PrinterName = labelSelectedPrinter.Text;
             Properties.Settings.Default.Save();
             return DialogResult.OK;
@@ -70,6 +70,15 @@ namespace PclAutoPrint {
                     labelSelectedPrinter.Text = pdialog.PrinterSettings.PrinterName;
                 }
             }
+        }
+
+        private void linkReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Properties.Settings.Default.Reset();
+            Revert();
+        }
+
+        private void linkClearPrinter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            labelSelectedPrinter.Text = String.Empty;
         }
     }
 }
