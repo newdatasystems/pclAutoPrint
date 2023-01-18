@@ -15,7 +15,7 @@ namespace PclAutoPrint {
         string caption = "PCL Print Notification";
         public string PrinterName { get; set; }
         public string FileName { get; set; }
-        public int Copies { get; set; }
+        public int Copies { get; set; } = 1;
 
         internal FilePrinter.AfterPrintFileOperation Operation { get; set; }
         public int DelaySeconds { get; set; } = Properties.Settings.Default.DelaySeconds;
@@ -110,6 +110,7 @@ namespace PclAutoPrint {
 
         private void PrintNotification_Shown(object sender, EventArgs e) {
             remainingMilliseconds = DelaySeconds * 1000;
+            spinCopies.Value = Copies;
             StartCountdown();
         }
 
@@ -144,6 +145,10 @@ namespace PclAutoPrint {
 
         private void PrintNotification_FormClosing(object sender, FormClosingEventArgs e) {
             HaltCountdown();
+        }
+
+        private void spinCopies_ValueChanged(object sender, EventArgs e) {
+            Copies = (int)spinCopies.Value;
         }
     }
 }

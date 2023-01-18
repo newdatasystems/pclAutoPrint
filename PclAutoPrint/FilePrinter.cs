@@ -13,10 +13,8 @@ namespace PclAutoPrint {
 
         public string FileName { get; set; }
         public string PrinterName { get; set; }
-        public int Copies { get; set; }
+        public int Copies { get; set; } = 1;
         public AfterPrintFileOperation FileStatus { get; set; }
-        public int DelaySeconds { get; set; }
-
 
         public void Print() {
             if (String.IsNullOrEmpty(FileName))
@@ -29,7 +27,9 @@ namespace PclAutoPrint {
                 if (!PromptForPrinter())
                     return;
 
-            RawFilePrint.SendFileToPrinter(PrinterName, FileName, Copies);
+            for (int i = 0; i < Copies; i++) {
+                RawFilePrint.SendFileToPrinter(PrinterName, FileName);
+            }
 
             bool deleteFile = (FileStatus == AfterPrintFileOperation.Delete);
 

@@ -128,10 +128,26 @@
             // spinCopies
             // 
             this.spinCopies.Location = new System.Drawing.Point(296, 61);
+            this.spinCopies.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.spinCopies.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinCopies.Name = "spinCopies";
             this.spinCopies.Size = new System.Drawing.Size(39, 27);
             this.spinCopies.TabIndex = 5;
             this.spinCopies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.spinCopies.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinCopies.ValueChanged += new System.EventHandler(this.spinCopies_ValueChanged);
             // 
             // label1
             // 

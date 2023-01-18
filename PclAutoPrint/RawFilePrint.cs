@@ -67,7 +67,7 @@ namespace PclAutoPrint {
             return bSuccess;
         }
 
-        public static bool SendFileToPrinter(string szPrinterName, string szFileName, int copies = 1) {
+        public static bool SendFileToPrinter(string szPrinterName, string szFileName) {
             bool bSuccess = false;
             using (FileStream fs = new FileStream(szFileName, FileMode.Open)) {
                 using (BinaryReader br = new BinaryReader(fs)) {
@@ -78,11 +78,7 @@ namespace PclAutoPrint {
                     bytes = br.ReadBytes(nLength);
                     pUnmanagedBytes = Marshal.AllocCoTaskMem(nLength);
                     Marshal.Copy(bytes, 0, pUnmanagedBytes, nLength);
-                    for (int i = 0; i < copies; i++) {
-                        bSuccess = SendBytesToPrinter(szPrinterName, pUnmanagedBytes, nLength);
-                        if (!bSuccess)
-                            break;
-                    }
+                    bSuccess = SendBytesToPrinter(szPrinterName, pUnmanagedBytes, nLength);
                     Marshal.FreeCoTaskMem(pUnmanagedBytes);
                 }
             }
