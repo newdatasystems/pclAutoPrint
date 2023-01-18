@@ -67,20 +67,25 @@ namespace PclAutoPrint {
             return bSuccess;
         }
 
-        public static bool SendFileToPrinter(string szPrinterName, string szFileName) {
-            FileStream fs = new FileStream(szFileName, FileMode.Open);
-            BinaryReader br = new BinaryReader(fs);
-            Byte[] bytes = new Byte[fs.Length];
+        public static bool SendFileToPrinter(string szPrinterName, string szFileName, int copies = 1) {
             bool bSuccess = false;
-            IntPtr pUnmanagedBytes = new IntPtr(0);
-            int nLength;
+            using (FileStream fs = new FileStream(szFileName, FileMode.Open)) {
+                using (BinaryReader br = new BinaryReader(fs)) {
+                    Byte[] bytes = new Byte[fs.Length];
+                    IntPtr pUnmanagedBytes = new IntPtr(0);
 
-            nLength = Convert.ToInt32(fs.Length);
-            bytes = br.ReadBytes(nLength);
-            pUnmanagedBytes = Marshal.AllocCoTaskMem(nLength);
-            Marshal.Copy(bytes, 0, pUnmanagedBytes, nLength);
-            bSuccess = SendBytesToPrinter(szPrinterName, pUnmanagedBytes, nLength);
-            Marshal.FreeCoTaskMem(pUnmanagedBytes);
+                    int nLength = Convert.ToInt32(fs.Length);
+                    bytes = br.ReadBytes(nLength);
+                    pUnmanagedBytes = Marshal.AllocCoTaskMem(nLength);
+                    Marshal.Copy(bytes, 0, pUnmanagedBytes, nLength);
+                    for (int i = 0; i < copies; i++) {
+                        bSuccess = SendBytesToPrinter(szPrinterName, pUnmanagedBytes, nLength);
+                        if (!bSuccess)
+                            break;
+                    }
+                    Marshal.FreeCoTaskMem(pUnmanagedBytes);
+                }
+            }
             return bSuccess;
         }
 
