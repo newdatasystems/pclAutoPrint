@@ -43,6 +43,10 @@
             this.buttonFormSave = new System.Windows.Forms.Button();
             this.buttonFormCancel = new System.Windows.Forms.Button();
             this.linkReset = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkStartWithWindows = new System.Windows.Forms.CheckBox();
+            this.checkStartMinimized = new System.Windows.Forms.CheckBox();
+            this.checkCloseToTaskbar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +80,7 @@
             this.panel1.Controls.Add(this.radioPrinterPrompt);
             this.panel1.Controls.Add(this.radioPrinterDefault);
             this.panel1.Controls.Add(this.radioPrinterSelected);
-            this.panel1.Location = new System.Drawing.Point(16, 29);
+            this.panel1.Location = new System.Drawing.Point(16, 27);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(414, 105);
@@ -134,7 +138,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Location = new System.Drawing.Point(13, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 16);
@@ -144,7 +148,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 252);
+            this.label2.Location = new System.Drawing.Point(17, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 5;
@@ -152,7 +156,7 @@
             // 
             // textUserDelay
             // 
-            this.textUserDelay.Location = new System.Drawing.Point(53, 249);
+            this.textUserDelay.Location = new System.Drawing.Point(53, 269);
             this.textUserDelay.Name = "textUserDelay";
             this.textUserDelay.Size = new System.Drawing.Size(26, 22);
             this.textUserDelay.TabIndex = 6;
@@ -162,16 +166,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 252);
+            this.label3.Location = new System.Drawing.Point(81, 272);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 16);
+            this.label3.Size = new System.Drawing.Size(232, 16);
             this.label3.TabIndex = 7;
-            this.label3.Text = "seconds before printing.";
+            this.label3.Text = "seconds before printing automatically.";
             // 
             // checkFolderMonitor
             // 
             this.checkFolderMonitor.AutoSize = true;
-            this.checkFolderMonitor.Location = new System.Drawing.Point(20, 166);
+            this.checkFolderMonitor.Location = new System.Drawing.Point(20, 186);
             this.checkFolderMonitor.Name = "checkFolderMonitor";
             this.checkFolderMonitor.Size = new System.Drawing.Size(373, 20);
             this.checkFolderMonitor.TabIndex = 8;
@@ -182,7 +186,7 @@
             // checkAutoDelete
             // 
             this.checkAutoDelete.AutoSize = true;
-            this.checkAutoDelete.Location = new System.Drawing.Point(16, 324);
+            this.checkAutoDelete.Location = new System.Drawing.Point(20, 139);
             this.checkAutoDelete.Name = "checkAutoDelete";
             this.checkAutoDelete.Size = new System.Drawing.Size(241, 20);
             this.checkAutoDelete.TabIndex = 9;
@@ -193,7 +197,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 147);
+            this.label4.Location = new System.Drawing.Point(13, 167);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 16);
@@ -204,7 +208,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 227);
+            this.label5.Location = new System.Drawing.Point(13, 247);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 16);
@@ -213,7 +217,7 @@
             // 
             // textMonitorFolder
             // 
-            this.textMonitorFolder.Location = new System.Drawing.Point(33, 192);
+            this.textMonitorFolder.Location = new System.Drawing.Point(33, 212);
             this.textMonitorFolder.Name = "textMonitorFolder";
             this.textMonitorFolder.Size = new System.Drawing.Size(360, 22);
             this.textMonitorFolder.TabIndex = 12;
@@ -224,7 +228,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.buttonFormSave);
             this.flowLayoutPanel1.Controls.Add(this.buttonFormCancel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(134, 350);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(134, 407);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 35);
             this.flowLayoutPanel1.TabIndex = 13;
@@ -262,11 +266,57 @@
             this.linkReset.Text = "Reset to defaults";
             this.linkReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReset_LinkClicked);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 304);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 16);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Startup && Shutdown";
+            // 
+            // checkStartWithWindows
+            // 
+            this.checkStartWithWindows.AutoSize = true;
+            this.checkStartWithWindows.Location = new System.Drawing.Point(20, 327);
+            this.checkStartWithWindows.Name = "checkStartWithWindows";
+            this.checkStartWithWindows.Size = new System.Drawing.Size(139, 20);
+            this.checkStartWithWindows.TabIndex = 24;
+            this.checkStartWithWindows.Text = "Start with Windows.";
+            this.checkStartWithWindows.UseVisualStyleBackColor = true;
+            this.checkStartWithWindows.CheckedChanged += new System.EventHandler(this.checkStartWithWindows_CheckedChanged);
+            // 
+            // checkStartMinimized
+            // 
+            this.checkStartMinimized.AutoSize = true;
+            this.checkStartMinimized.Location = new System.Drawing.Point(20, 379);
+            this.checkStartMinimized.Name = "checkStartMinimized";
+            this.checkStartMinimized.Size = new System.Drawing.Size(181, 20);
+            this.checkStartMinimized.TabIndex = 23;
+            this.checkStartMinimized.Text = "Start minimized to taskbar.";
+            this.checkStartMinimized.UseVisualStyleBackColor = true;
+            // 
+            // checkCloseToTaskbar
+            // 
+            this.checkCloseToTaskbar.AutoSize = true;
+            this.checkCloseToTaskbar.Location = new System.Drawing.Point(20, 353);
+            this.checkCloseToTaskbar.Name = "checkCloseToTaskbar";
+            this.checkCloseToTaskbar.Size = new System.Drawing.Size(250, 20);
+            this.checkCloseToTaskbar.TabIndex = 22;
+            this.checkCloseToTaskbar.Text = "Minimize to taskbar instead of closing.";
+            this.checkCloseToTaskbar.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 389);
+            this.ClientSize = new System.Drawing.Size(443, 446);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.checkStartWithWindows);
+            this.Controls.Add(this.checkStartMinimized);
+            this.Controls.Add(this.checkCloseToTaskbar);
             this.Controls.Add(this.linkReset);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.textMonitorFolder);
@@ -314,5 +364,9 @@
         private System.Windows.Forms.Button buttonFormCancel;
         private System.Windows.Forms.LinkLabel linkReset;
         private System.Windows.Forms.LinkLabel linkClearPrinter;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkStartWithWindows;
+        private System.Windows.Forms.CheckBox checkStartMinimized;
+        private System.Windows.Forms.CheckBox checkCloseToTaskbar;
     }
 }

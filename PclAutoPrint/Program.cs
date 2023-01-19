@@ -34,8 +34,8 @@ namespace PclAutoPrint {
             Application.SetCompatibleTextRenderingDefault(false);
 
             var ddForm = new DragAndDropForm();
-            ddForm.ShowDialog();
-            return;
+            ddForm.Show();
+            Application.Run();
 
         }
 

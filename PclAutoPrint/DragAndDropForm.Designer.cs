@@ -23,15 +23,23 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DragAndDropForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.labelDropTarget = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.labelMonitor = new System.Windows.Forms.Label();
             this.pictureSettings = new System.Windows.Forms.PictureBox();
-            this.labelVersion = new System.Windows.Forms.Label();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.notifyShowFormMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyShowSettingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.notifyExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).BeginInit();
+            this.notifyIconMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -45,6 +53,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 380);
             this.panel1.TabIndex = 0;
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersion.Location = new System.Drawing.Point(499, 363);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(90, 13);
+            this.labelVersion.TabIndex = 4;
+            this.labelVersion.Text = "v1.1.1.1";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelDropTarget
             // 
@@ -92,15 +110,49 @@
             this.pictureSettings.TabStop = false;
             this.pictureSettings.Click += new System.EventHandler(this.pictureSettings_Click);
             // 
-            // labelVersion
+            // notifyIcon
             // 
-            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelVersion.Location = new System.Drawing.Point(499, 363);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(90, 13);
-            this.labelVersion.TabIndex = 4;
-            this.labelVersion.Text = "v1.1.1.1";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.notifyIcon.ContextMenuStrip = this.notifyIconMenu;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "PCL to Printer";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            // 
+            // notifyIconMenu
+            // 
+            this.notifyIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notifyShowFormMenuItem,
+            this.notifyShowSettingsMenuItem,
+            this.toolStripMenuItem2,
+            this.notifyExitMenuItem});
+            this.notifyIconMenu.Name = "notifyIconMenu";
+            this.notifyIconMenu.Size = new System.Drawing.Size(187, 76);
+            // 
+            // notifyShowFormMenuItem
+            // 
+            this.notifyShowFormMenuItem.Name = "notifyShowFormMenuItem";
+            this.notifyShowFormMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.notifyShowFormMenuItem.Text = "Show Drag-and-drop";
+            this.notifyShowFormMenuItem.Click += new System.EventHandler(this.notifyShowFormMenuItem_Click);
+            // 
+            // notifyShowSettingsMenuItem
+            // 
+            this.notifyShowSettingsMenuItem.Name = "notifyShowSettingsMenuItem";
+            this.notifyShowSettingsMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.notifyShowSettingsMenuItem.Text = "Settings";
+            this.notifyShowSettingsMenuItem.Click += new System.EventHandler(this.notifyShowSettingsMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(183, 6);
+            // 
+            // notifyExitMenuItem
+            // 
+            this.notifyExitMenuItem.Name = "notifyExitMenuItem";
+            this.notifyExitMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.notifyExitMenuItem.Text = "Exit";
+            this.notifyExitMenuItem.Click += new System.EventHandler(this.notifyExitMenuItem_Click);
             // 
             // DragAndDropForm
             // 
@@ -113,10 +165,13 @@
             this.Controls.Add(this.checkBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DragAndDropForm";
+            this.ShowInTaskbar = false;
             this.Text = "PCL Auto Printer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DragAndDropForm_FormClosing);
             this.Click += new System.EventHandler(this.pictureSettings_Click);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureSettings)).EndInit();
+            this.notifyIconMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +185,11 @@
         private System.Windows.Forms.Label labelMonitor;
         private System.Windows.Forms.PictureBox pictureSettings;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip notifyIconMenu;
+        private System.Windows.Forms.ToolStripMenuItem notifyExitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notifyShowFormMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notifyShowSettingsMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }

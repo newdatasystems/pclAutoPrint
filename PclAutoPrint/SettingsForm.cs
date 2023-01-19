@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using PclAutoPrint.Properties;
+using System;
 using System.Windows.Forms;
 
 namespace PclAutoPrint {
@@ -22,6 +24,12 @@ namespace PclAutoPrint {
             checkFolderMonitor.Checked = Properties.Settings.Default.MonitorFolder;
             checkAutoDelete.Checked = String.Equals(Properties.Settings.Default.DeleteFiles, "Delete");
             labelSelectedPrinter.Text = Properties.Settings.Default.PrinterName;
+
+            checkStartMinimized.Checked = Properties.Settings.Default.StartMinimized;
+            checkCloseToTaskbar.Checked = Properties.Settings.Default.CloseToTaskbar;
+
+
+            ReadStartupRegistryState();
         }
 
         DialogResult SaveAndClose() {
@@ -40,6 +48,8 @@ namespace PclAutoPrint {
             Properties.Settings.Default.MonitorFolder = checkFolderMonitor.Checked;
             Properties.Settings.Default.DeleteFiles = checkAutoDelete.Checked ? "Delete" : "Keep";
             Properties.Settings.Default.PrinterName = labelSelectedPrinter.Text;
+            Properties.Settings.Default.StartMinimized = checkStartMinimized.Checked;
+            Properties.Settings.Default.CloseToTaskbar = checkCloseToTaskbar.Checked;
             Properties.Settings.Default.Save();
             return DialogResult.OK;
         }
@@ -85,6 +95,42 @@ namespace PclAutoPrint {
             if (checkFolderMonitor.Checked && String.IsNullOrEmpty(textMonitorFolder.Text)) {
                 textMonitorFolder.Text = String.Format(@"C:\Users\{0}\Downloads\", Environment.UserName);
             }
+        }
+
+        private bool ReadStartupRegistryState() {
+            try {
+                using (RegistryKey regParent = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)) {
+                    var rk = regParent.GetValue("PCL Send to Printer Utility");
+                    return rk == null;
+                }
+            } catch (Exception) {
+                if (!checkStartWithWindows.Text.Contains("Access"))
+                    checkStartWithWindows.Text = $"{checkStartWithWindows.Text} (Access Denied)";
+                checkStartWithWindows.Enabled = false;
+            }
+
+            return false;
+        }
+
+        private void SetStartupRegistryState(bool turnOn) {
+            RegistryKey regParent = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            string startPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs)
+                   + @"\New Data Systems, Inc\PCL Send to Printer Utility.appref-ms";
+            try {
+                if (turnOn)
+                    regParent.SetValue("PCL Send to Printer Utility", startPath);
+                else
+                    regParent.DeleteValue("PCL Send to Printer Utility", false);
+            } catch (Exception) {
+                if (!checkStartWithWindows.Text.Contains("Access"))
+                    checkStartWithWindows.Text = $"{checkStartWithWindows.Text} (Access Denied)";
+                checkStartWithWindows.Enabled = false;
+            }
+
+        }
+
+        private void checkStartWithWindows_CheckedChanged(object sender, EventArgs e) {
+            SetStartupRegistryState(checkStartWithWindows.Checked);
         }
     }
 }
