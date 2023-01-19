@@ -28,7 +28,6 @@
     <SupportUrl>https://catstoday.com</SupportUrl>
     <ProductName>PCL Send to Printer Utility</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
-    <MinimumRequiredVersion>$(ApplicationVersion)</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>8</ApplicationRevision>
@@ -117,6 +116,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartupOptions.cs" />
+    <Compile Include="AppVersion.cs" />
     <EmbeddedResource Include="DragAndDropForm.resx">
       <DependentUpon>DragAndDropForm.cs</DependentUpon>
     </EmbeddedResource>
