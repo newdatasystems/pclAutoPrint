@@ -29,7 +29,7 @@ namespace PclAutoPrint {
             DisplayVersionInformation();
         }
         void DisplayVersionInformation() {
-            labelVersion.Text = AppVersion.GetVersionString();
+            labelVersion.Text = $"v{AppVersion.GetVersionString()}";
         }
 
         private void StartCountdown() {

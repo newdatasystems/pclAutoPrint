@@ -37,7 +37,7 @@ namespace PclAutoPrint {
         }
 
         void DisplayVersionInformation () {
-            labelVersion.Text = AppVersion.GetVersionString();
+            labelVersion.Text = $"v{AppVersion.GetVersionString()}";
         }
 
         private void SetupFolderWatcher () {
