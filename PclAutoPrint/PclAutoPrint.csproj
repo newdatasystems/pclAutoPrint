@@ -21,18 +21,18 @@
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
+    <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</InstallUrl>
     <UpdateUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</UpdateUrl>
     <SupportUrl>https://catstoday.com</SupportUrl>
     <ProductName>PCL Send to Printer Utility</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
-    <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>$(ApplicationVersion)</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>8</ApplicationRevision>
-    <ApplicationVersion>1.2.1.8</ApplicationVersion>
+    <ApplicationVersion>1.2.1.9</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
