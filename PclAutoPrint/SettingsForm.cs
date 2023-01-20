@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace PclAutoPrint {
     public partial class SettingsForm : Form {
+        private const string AppNameRegistryKey = "PCL Send to Printer Utility";
+
         public SettingsForm() {
             InitializeComponent();
         }
@@ -24,6 +26,7 @@ namespace PclAutoPrint {
             checkFolderMonitor.Checked = Properties.Settings.Default.MonitorFolder;
             checkAutoDelete.Checked = String.Equals(Properties.Settings.Default.DeleteFiles, "Delete");
             labelSelectedPrinter.Text = Properties.Settings.Default.PrinterName;
+            labelDefaultPrinter.Text = FilePrinter.GetDefaultPrinterName();
 
             checkStartMinimized.Checked = Properties.Settings.Default.StartMinimized;
             checkCloseToTaskbar.Checked = Properties.Settings.Default.CloseToTaskbar;
@@ -78,6 +81,7 @@ namespace PclAutoPrint {
                 var printResult = pdialog.ShowDialog();
                 if (printResult == DialogResult.OK) {
                     labelSelectedPrinter.Text = pdialog.PrinterSettings.PrinterName;
+                    radioPrinterDefault.Checked = true;
                 }
             }
         }
@@ -100,8 +104,8 @@ namespace PclAutoPrint {
         private bool ReadStartupRegistryState() {
             try {
                 using (RegistryKey regParent = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)) {
-                    var rk = regParent.GetValue("PCL Send to Printer Utility");
-                    return rk == null;
+                    var rk = regParent.GetValue(AppNameRegistryKey);
+                    return rk != null;
                 }
             } catch (Exception) {
                 if (!checkStartWithWindows.Text.Contains("Access"))
@@ -118,9 +122,9 @@ namespace PclAutoPrint {
                    + @"\New Data Systems, Inc\PCL Send to Printer Utility.appref-ms";
             try {
                 if (turnOn)
-                    regParent.SetValue("PCL Send to Printer Utility", startPath);
+                    regParent.SetValue(AppNameRegistryKey, startPath);
                 else
-                    regParent.DeleteValue("PCL Send to Printer Utility", false);
+                    regParent.DeleteValue(AppNameRegistryKey, false);
             } catch (Exception) {
                 if (!checkStartWithWindows.Text.Contains("Access"))
                     checkStartWithWindows.Text = $"{checkStartWithWindows.Text} (Access Denied)";

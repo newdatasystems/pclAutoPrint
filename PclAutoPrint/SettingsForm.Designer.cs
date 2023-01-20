@@ -47,6 +47,7 @@
             this.checkStartWithWindows = new System.Windows.Forms.CheckBox();
             this.checkStartMinimized = new System.Windows.Forms.CheckBox();
             this.checkCloseToTaskbar = new System.Windows.Forms.CheckBox();
+            this.labelDefaultPrinter = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelDefaultPrinter);
             this.panel1.Controls.Add(this.linkClearPrinter);
             this.panel1.Controls.Add(this.buttonChangePrinter);
             this.panel1.Controls.Add(this.labelSelectedPrinter);
@@ -308,6 +310,17 @@
             this.checkCloseToTaskbar.Text = "Minimize to taskbar instead of closing.";
             this.checkCloseToTaskbar.UseVisualStyleBackColor = true;
             // 
+            // labelDefaultPrinter
+            // 
+            this.labelDefaultPrinter.AutoSize = true;
+            this.labelDefaultPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefaultPrinter.Location = new System.Drawing.Point(160, 34);
+            this.labelDefaultPrinter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDefaultPrinter.Name = "labelDefaultPrinter";
+            this.labelDefaultPrinter.Size = new System.Drawing.Size(125, 16);
+            this.labelDefaultPrinter.TabIndex = 16;
+            this.labelDefaultPrinter.Text = "(no printer selected)";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,5 +381,6 @@
         private System.Windows.Forms.CheckBox checkStartWithWindows;
         private System.Windows.Forms.CheckBox checkStartMinimized;
         private System.Windows.Forms.CheckBox checkCloseToTaskbar;
+        private System.Windows.Forms.Label labelDefaultPrinter;
     }
 }
