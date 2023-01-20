@@ -70,7 +70,7 @@ namespace PclAutoPrint {
 
         private void ShowSettings () {
             var settingsForm = new SettingsForm();
-            if (settingsForm.ShowDialog() == DialogResult.OK)
+            if (settingsForm.ShowDialog(this) == DialogResult.OK)
                 SetupFolderWatcher();
         }
 

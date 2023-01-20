@@ -46,7 +46,8 @@ namespace PclAutoPrint {
         }
 
         private void HaltCountdown() {
-            StopCountdown(true);
+            if (timer1.Enabled)
+                StopCountdown(true);
         }
 
         private void StopCountdown(bool halt = false) {
@@ -113,9 +114,13 @@ namespace PclAutoPrint {
                 AllowPrintToFile = false,
                 AllowSomePages = false
             }) {
+                pdialog.PrinterSettings.Copies = (short)Copies;
+                if (!String.IsNullOrEmpty(PrinterName))
+                    pdialog.PrinterSettings.PrinterName = PrinterName;
                 var printResult = pdialog.ShowDialog();
                 if (printResult == DialogResult.OK) {
                     PrinterName = pdialog.PrinterSettings.PrinterName;
+                    Copies = pdialog.PrinterSettings.Copies;
                 }
             }
         }
@@ -125,6 +130,7 @@ namespace PclAutoPrint {
             spinCopies.Value = Copies;
 
             if (String.IsNullOrEmpty(PrinterName)) {
+                UpdateDisplay();
                 SelectPrinter();
                 if (!String.IsNullOrEmpty(PrinterName) && DelaySeconds==0) {
                     SendFileToPrinter();
@@ -175,7 +181,8 @@ namespace PclAutoPrint {
         private void pictureSettings_Click(object sender, EventArgs e) {
             StopCountdown(true);
             var settingsForm = new SettingsForm();
-            settingsForm.ShowDialog();
+            settingsForm.TopMost = true; // show the settings dialog over the notification
+            settingsForm.ShowDialog(this);
         }
     }
 }
