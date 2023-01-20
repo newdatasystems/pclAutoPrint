@@ -165,7 +165,6 @@
             this.Controls.Add(this.checkBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DragAndDropForm";
-            this.ShowInTaskbar = false;
             this.Text = "PCL Auto Printer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DragAndDropForm_FormClosing);
             this.Click += new System.EventHandler(this.pictureSettings_Click);
