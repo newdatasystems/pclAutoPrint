@@ -28,8 +28,9 @@
     <SupportUrl>https://catstoday.com</SupportUrl>
     <ProductName>PCL Send to Printer Utility</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <MinimumRequiredVersion>1.2.1.9</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.2.1.9</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
