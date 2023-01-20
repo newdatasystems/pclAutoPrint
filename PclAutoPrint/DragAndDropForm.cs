@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace PclAutoPrint {
             allowVisible = !Properties.Settings.Default.StartMinimized;
             SetupFolderWatcher();
             DisplayVersionInformation();
+            if (ApplicationDeployment.IsNetworkDeployed && ApplicationDeployment.CurrentDeployment.IsFirstRun)
+                ShowSettings();
         }
 
         protected override void SetVisibleCore(bool value) {
