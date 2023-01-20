@@ -61,6 +61,15 @@ namespace PclAutoPrint.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PclAutoPrint.
+        /// </summary>
+        internal static string Mutex {
+            get {
+                return ResourceManager.GetString("Mutex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pause_png {

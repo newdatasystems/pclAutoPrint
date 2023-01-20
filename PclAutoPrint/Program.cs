@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PclAutoPrint {
     internal static class Program {
+
+        static Mutex ApplicationMutex = null;
 
         /// <summary>
         /// The main entry point for the application.
@@ -29,6 +32,9 @@ namespace PclAutoPrint {
                 return;
             }
 
+            if (!TakeMutex())
+                return;
+
             // otherwise display the drag-and-drop form so users can manually send files to the printer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -37,7 +43,13 @@ namespace PclAutoPrint {
             ddForm.Show();
             Application.Run();
 
+            ApplicationMutex.ReleaseMutex();
         }
 
+        private static bool TakeMutex() {
+            bool createdNew = false;
+            ApplicationMutex = new Mutex(true, Properties.Resources.Mutex, out createdNew);
+            return createdNew;
+        }
     }
 }
