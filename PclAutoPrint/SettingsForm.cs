@@ -31,8 +31,7 @@ namespace PclAutoPrint {
             checkStartMinimized.Checked = Properties.Settings.Default.StartMinimized;
             checkCloseToTaskbar.Checked = Properties.Settings.Default.CloseToTaskbar;
 
-
-            ReadStartupRegistryState();
+            checkStartWithWindows.Checked = ReadStartupRegistryState();
         }
 
         DialogResult SaveAndClose() {
