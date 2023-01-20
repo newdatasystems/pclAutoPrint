@@ -46,7 +46,7 @@ namespace PclAutoPrint {
                 watcher.WatchFolder(Properties.Settings.Default.FolderName);
 
             if (watcher.IsWatching) {
-                notifyIcon.Text = $"PCL to Printer v{AppVersion.GetVersionString()} (Monitoring {watcher.Folder})";
+                notifyIcon.Text = $"PCL to Printer v{AppVersion.GetVersionString()} (Monitoring)";
                 labelMonitor.Text = $"Monitoring {watcher.Folder} for changes.";
             }
             else {
