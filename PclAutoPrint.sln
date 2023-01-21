@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PclAutoPrint", "PclAutoPrint\PclAutoPrint.csproj", "{D658C72D-3133-442A-937D-931D8B034C26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PclAutoPrintProductionStub", "ProductionStub\PclAutoPrintProductionStub.csproj", "{7965DDA2-A9CF-4EB5-9CBE-61E673D63963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PclAutoPrintDevStub", "DevStub\PclAutoPrintDevStub.csproj", "{3C18EDD3-15B2-4D77-98AD-BBBC69152772}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D658C72D-3133-442A-937D-931D8B034C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D658C72D-3133-442A-937D-931D8B034C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D658C72D-3133-442A-937D-931D8B034C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7965DDA2-A9CF-4EB5-9CBE-61E673D63963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7965DDA2-A9CF-4EB5-9CBE-61E673D63963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7965DDA2-A9CF-4EB5-9CBE-61E673D63963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7965DDA2-A9CF-4EB5-9CBE-61E673D63963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C18EDD3-15B2-4D77-98AD-BBBC69152772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C18EDD3-15B2-4D77-98AD-BBBC69152772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C18EDD3-15B2-4D77-98AD-BBBC69152772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C18EDD3-15B2-4D77-98AD-BBBC69152772}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

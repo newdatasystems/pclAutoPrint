@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PclAutoPrint {
-    internal static class Program {
+    public static class Program {
 
         static Mutex ApplicationMutex = null;
 
@@ -14,7 +14,7 @@ namespace PclAutoPrint {
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args) {
+        public static void Main(string[] args) {
             // if arguments are passed on the command line then we process the files and exit
             if (args.Length > 0) {
                 FilePrinter.PrintWithArgs(args);

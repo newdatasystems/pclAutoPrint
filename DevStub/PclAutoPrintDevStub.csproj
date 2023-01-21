@@ -4,37 +4,35 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D658C72D-3133-442A-937D-931D8B034C26}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>PclAutoPrint</RootNamespace>
+    <ProjectGuid>{3C18EDD3-15B2-4D77-98AD-BBBC69152772}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PclAutoPrintDevStub</RootNamespace>
     <AssemblyName>PclAutoPrint</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</InstallUrl>
-    <UpdateUrl>https://pclprint.catstoday.com/PclAutoPrint/publish/</UpdateUrl>
-    <SupportUrl>https://catstoday.com</SupportUrl>
-    <ProductName>PCL Send to Printer Utility</ProductName>
+    <InstallUrl>https://catstoday.com/tools/pclPrintDev/</InstallUrl>
+    <ProductName>PCL Send to Printer %28Development Version%29</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
-    <MinimumRequiredVersion>1.2.1.9</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.2.1.11</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationVersion>1.2.1.11</ApplicationVersion>
+    <ApplicationVersion>1.2.1.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -56,32 +54,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>BAF6CE84CDC4E1473EEFC1F7E9740B18184C5261</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>pclprint.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -96,38 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilePrinter.cs" />
-    <Compile Include="DragAndDropForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DragAndDropForm.Designer.cs">
-      <DependentUpon>DragAndDropForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FolderWatcher.cs" />
-    <Compile Include="PrintNotification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrintNotification.Designer.cs">
-      <DependentUpon>PrintNotification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RawFilePrint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StartupOptions.cs" />
-    <Compile Include="AppVersion.cs" />
-    <EmbeddedResource Include="DragAndDropForm.resx">
-      <DependentUpon>DragAndDropForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrintNotification.resx">
-      <DependentUpon>PrintNotification.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,11 +80,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="codesigningcert_2024_min.pfx" />
-    <None Include="nds_codesigningcert2024.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +94,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PclAutoPrint\PclAutoPrint.csproj">
+      <Project>{d658c72d-3133-442a-937d-931d8b034c26}</Project>
+      <Name>PclAutoPrint</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pclprint.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
@@ -169,23 +115,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ndscats.ico" />
-    <Content Include="publish\publish.htm" />
-    <None Include="settings.png" />
-    <None Include="pause.png" />
-    <Content Include="pclprint.ico" />
-    <None Include="play.png" />
-  </ItemGroup>
-  <ItemGroup>
     <FileAssociation Include=".cats-pcl">
       <Visible>False</Visible>
-      <Description>PCL output from CATS</Description>
+      <Description>CATS PCL Printer Output</Description>
       <Progid>CATSPCL</Progid>
       <DefaultIcon>pclprint.ico</DefaultIcon>
     </FileAssociation>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
