@@ -80,7 +80,7 @@ namespace PclAutoPrint {
                 var printResult = pdialog.ShowDialog();
                 if (printResult == DialogResult.OK) {
                     labelSelectedPrinter.Text = pdialog.PrinterSettings.PrinterName;
-                    radioPrinterDefault.Checked = true;
+                    radioPrinterSelected.Checked = true;
                 }
             }
         }
