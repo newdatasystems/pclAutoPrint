@@ -26,11 +26,11 @@
     <InstallUrl>https://catstoday.com/tools/pclPrintDev/</InstallUrl>
     <ProductName>PCL Send to Printer %28Development Version%29</ProductName>
     <PublisherName>New Data Systems, Inc.</PublisherName>
-    <MinimumRequiredVersion>1.2.1.11</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.2.1.13</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.2.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
