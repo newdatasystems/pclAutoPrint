@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckForUpdate.cs" />
     <Compile Include="FilePrinter.cs" />
     <Compile Include="DragAndDropForm.cs">
       <SubType>Form</SubType>

@@ -26,6 +26,7 @@
             this.labelSelectedPrinter = new System.Windows.Forms.Label();
             this.buttonChangePrinter = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelDefaultPrinter = new System.Windows.Forms.Label();
             this.linkClearPrinter = new System.Windows.Forms.LinkLabel();
             this.radioPrinterPrompt = new System.Windows.Forms.RadioButton();
             this.radioPrinterDefault = new System.Windows.Forms.RadioButton();
@@ -47,7 +48,8 @@
             this.checkStartWithWindows = new System.Windows.Forms.CheckBox();
             this.checkStartMinimized = new System.Windows.Forms.CheckBox();
             this.checkCloseToTaskbar = new System.Windows.Forms.CheckBox();
-            this.labelDefaultPrinter = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.linkCheckUpdates = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +89,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(414, 105);
             this.panel1.TabIndex = 3;
+            // 
+            // labelDefaultPrinter
+            // 
+            this.labelDefaultPrinter.AutoSize = true;
+            this.labelDefaultPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefaultPrinter.Location = new System.Drawing.Point(160, 34);
+            this.labelDefaultPrinter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDefaultPrinter.Name = "labelDefaultPrinter";
+            this.labelDefaultPrinter.Size = new System.Drawing.Size(125, 16);
+            this.labelDefaultPrinter.TabIndex = 16;
+            this.labelDefaultPrinter.Text = "(no printer selected)";
             // 
             // linkClearPrinter
             // 
@@ -310,22 +323,36 @@
             this.checkCloseToTaskbar.Text = "Minimize to taskbar instead of closing.";
             this.checkCloseToTaskbar.UseVisualStyleBackColor = true;
             // 
-            // labelDefaultPrinter
+            // labelVersion
             // 
-            this.labelDefaultPrinter.AutoSize = true;
-            this.labelDefaultPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDefaultPrinter.Location = new System.Drawing.Point(160, 34);
-            this.labelDefaultPrinter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelDefaultPrinter.Name = "labelDefaultPrinter";
-            this.labelDefaultPrinter.Size = new System.Drawing.Size(125, 16);
-            this.labelDefaultPrinter.TabIndex = 16;
-            this.labelDefaultPrinter.Text = "(no printer selected)";
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersion.Location = new System.Drawing.Point(348, 410);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(90, 13);
+            this.labelVersion.TabIndex = 26;
+            this.labelVersion.Text = "v1.1.1.1";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // linkCheckUpdates
+            // 
+            this.linkCheckUpdates.AutoSize = true;
+            this.linkCheckUpdates.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkCheckUpdates.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkCheckUpdates.Location = new System.Drawing.Point(344, 425);
+            this.linkCheckUpdates.Name = "linkCheckUpdates";
+            this.linkCheckUpdates.Size = new System.Drawing.Size(94, 13);
+            this.linkCheckUpdates.TabIndex = 27;
+            this.linkCheckUpdates.TabStop = true;
+            this.linkCheckUpdates.Text = "Check for updates";
+            this.linkCheckUpdates.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCheckUpdates_LinkClicked);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 446);
+            this.Controls.Add(this.linkCheckUpdates);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkStartWithWindows);
             this.Controls.Add(this.checkStartMinimized);
@@ -382,5 +409,7 @@
         private System.Windows.Forms.CheckBox checkStartMinimized;
         private System.Windows.Forms.CheckBox checkCloseToTaskbar;
         private System.Windows.Forms.Label labelDefaultPrinter;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.LinkLabel linkCheckUpdates;
     }
 }

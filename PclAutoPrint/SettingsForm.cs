@@ -135,5 +135,16 @@ namespace PclAutoPrint {
         private void checkStartWithWindows_CheckedChanged(object sender, EventArgs e) {
             SetStartupRegistryState(checkStartWithWindows.Checked);
         }
+
+        private void linkCheckUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Version latestVersion = null;
+            if (CheckForUpdate.IsUpdateAvailable(out latestVersion)) {
+                if (MessageBox.Show($"An Update is Available!\nYour version: {AppVersion.GetVersion()}.\nAvailable version: {latestVersion}.\nWould you like to apply the update now?",$"Update Available: {latestVersion}",MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                    CheckForUpdate.DoUpdate();
+                }
+            } else {
+                MessageBox.Show("This is the latest version.",$"Latest Version: {latestVersion}");
+            }
+        }
     }
 }
